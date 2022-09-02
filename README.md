@@ -1,1 +1,1 @@
-Checklist to prosta aplikacja Angularowa do tworzenia listy zadań do wykonania wraz z określeniem daty jej wykonania. 
+Checklist to prosta aplikacja Angularowa do tworzenia listy zadań do wykonania wraz z określeniem daty jej wykonania. Po dodaniu zadania, można je określić jako wkonane, lub usunąć z listy. Całą listę można wyczyścić przyciskiem "wyczyść". Panel z dodawaniem zadań można schować z wykorzystaniem przycisku "zakończ" i aktywować klikając na "dodaj zadanie".
