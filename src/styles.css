@@ -1,0 +1,23 @@
+:root{
+    font-size: 13px;
+    margin:0 !important
+}
+
+html{
+    
+    width:100%;
+	height:auto;
+    
+}
+
+body
+{
+    display:flex;
+    flex-wrap: wrap;
+	margin:0 !important;
+    background: rgb(225,225,255);
+	background: linear-gradient(358deg, rgb(204, 204, 247) 29%, rgba(232,232,252,1) 100%);
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+}

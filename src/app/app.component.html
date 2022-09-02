@@ -1,0 +1,49 @@
+  <div class="title">
+   {{title | uppercase}}
+   <br><h2>{{undertitle}}</h2>
+  </div>
+
+  <div class="menu">
+    <ng-container *ngIf="editMode; then editOn; else editOff"></ng-container>
+    <ng-template #editOff>
+      <button class="button" (click)="switchEditMode()">Dodaj zadanie</button>
+    </ng-template>
+    <ng-template #editOn>
+      <button class="button" (click)="switchEditMode()">Zakończ</button>
+    </ng-template>
+  </div>
+
+   <div class="task" *ngIf="editMode">
+      <input class="input jeden" placeholder="Wpisz zadanie i ustaw datę wykonania" [(ngModel)]="taskName">
+      <input class="input dwa" type="date" #date />
+      <button class="add" (click)="createTasks(date.value); date.value=''" 
+      [disabled]="taskName===''">+</button>
+    
+  </div>
+
+  <ol class="list">
+    <ng-container *ngFor="let task of tasks, let i=index" [ngSwitch]="task.done">
+      <li *ngSwitchCase="false">
+        <span>{{i+1}}. {{task.name}} - {{task.date | date: "fullDate":"":"pl"}}</span>
+        <div class="right">
+        <button class="check done" (click)="taskDone(task)">✔</button>
+        <button class="check remove" (click)="taskDelete(task)">✖</button>
+        </div>
+      </li>
+      <li *ngSwitchCase="true">
+        <span class="after">{{task.name}}</span>
+      </li>
+    </ng-container>
+  </ol>
+
+  <h3 *ngIf="tasks.length===0">Na dzisiaj już brak zadań - wolne!</h3>
+
+   <div class="menu">
+    <button class="button margines" (click)="clearTask()" [disabled]="tasks.length===0">Wyczyść</button>
+  </div>
+
+  <div class="footer">
+     {{footer}} {{todayDate | date:'longDate':"":"pl"}}
+  </div>
+
+
